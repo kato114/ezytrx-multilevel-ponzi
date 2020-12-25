@@ -14,10 +14,10 @@
 @section('body')
     <a href="javascript:" id="return-to-top"><i class="fa fa-angle-up"></i></a>
     <!-- preloader Start -->
-    <div id="preloader">
-        <div id="status"><img src="{{ asset('assets/images/banner/loader.gif') }}" id="preloader_image" alt="loader">
-        </div>
-    </div>
+    <!--<div id="preloader">-->
+    <!--    <div id="status"><img src="{{ asset('assets/images/banner/loader.gif') }}" id="preloader_image" alt="loader">-->
+    <!--    </div>-->
+    <!--</div>-->
     <!--Header area start here-->
     <div section-scroll='0' class="wd_scroll_wrap">
         <header class="gc_main_menu_wrapper">
@@ -122,7 +122,7 @@
                             <div class="content">
                                 <div class="con text-center w-100">
                                     <h2><img src="{{ asset('assets/images/icons/1.png') }}" alt=""><span>All Participants</span></h2>
-                                    <h1 class="text-center mr-b0 mr-t0">20,000</h1>
+                                    <h1 class="text-center mr-b0 mr-t0">{{ number_format($all_participant_count) }}</h1>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                             <div class="content">
                                 <div class="con text-center w-100">
                                     <h2><img src="{{ asset('assets/images/icons/2.png') }}" alt=""><span>Join In 24 Hours</span></h2>
-                                    <h1 class="text-center mr-b0 mr-t0">20,000</h1>
+                                    <h1 class="text-center mr-b0 mr-t0">{{ number_format($recent_participant_count) }}</h1>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                             <div class="content">
                                 <div class="con text-center w-100">
                                     <h2><img src="{{ asset('assets/images/icons/3.png') }}" alt=""><span>Total Earned TRX</span></h2>
-                                    <h1 class="text-center mr-b0 mr-t0">20,000</h1>
+                                    <h1 class="text-center mr-b0 mr-t0">{{ number_format($total_earned_trx) }}</h1>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                             <div class="content">
                                 <div class="con text-center w-100">
                                     <h2><img src="{{ asset('assets/images/icons/5.png') }}" alt=""><span>Total Earned USD</span></h2>
-                                    <h1 class="text-center mr-b0 mr-t0">20,000</h1>
+                                    <h1 class="text-center mr-b0 mr-t0">{{ number_format($total_earned_trx * $tron_price, 2) }}</h1>
                                 </div>
                             </div>
                         </div>

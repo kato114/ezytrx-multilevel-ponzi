@@ -3,41 +3,30 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use Notifiable;
+    
+    public static function get_ez1_children($user_id, $level)
+    {
+    	return static::where('user_level', '>=', $level)->where('org_referral_id', '=', $user_id)->get()->toArray();
+    }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    public static function get_ez10_children($user_id, $level, $deep)
+    {
+    	$res = static::where('user_level', '>=', $level)->where('referral_id', '=', $user_id)->get()->toArray();
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    	if($deep > 0) {
+	        $teamlist = static::where('referral_id', '=', $user_id)->get();
+	        foreach ($teamlist as $key => $member) {
+	            $team = static::get_ez10_children($member->id, $level, $deep - 1);
+	            $res = array_merge($res, $team);
+	        }
+        }
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    	return $res;
+    }
 }

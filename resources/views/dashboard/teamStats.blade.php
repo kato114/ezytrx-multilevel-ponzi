@@ -7,20 +7,16 @@
     <div class="text-white p-3">
         <div class="border border-white mx-1 mb-3 py-3 px-5">
             <div class="row">
-                <p class="col-4 m-0">Total Team registrations:</p>
-                <p class="col-8 m-0">10</p>
+                <p class="col-4 m-0">Total Team registrations : {{ count($teamlist) }}</p>
             </div>
             <div class="row">
-                <p class="col-4 m-0">Registrations for the week:</p>
-                <p class="col-8 m-0">10</p>
+                <p class="col-4 m-0">Registrations for the week : {{ $week_count }}</p>
             </div>
             <div class="row">
-                <p class="col-4 m-0">Registrations in 24 hours:</p>
-                <p class="col-8 m-0">10</p>
+                <p class="col-4 m-0">Registrations in 24 hours : {{ $day_count }}</p>
             </div>
             <div class="row">
-                <p class="col-4 m-0">Sponsor ID :</p>
-                <p class="col-8 m-0">10</p>
+                <p class="col-4 m-0">Sponsor ID : {{ $user->referral_id }}</p>
             </div>
         </div>
         <table id="example" class="table table-bordered text-white">
@@ -35,166 +31,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($teamlist as $member)
                 <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
+                    <td>{{ $member['id'] }}</td>
+                    <td>{{ substr($member['address'], 0, 3) . "..." . substr($member['address'], -3) }}</td>
+                    <td>{!! $member['referral_id'] == $user->id ? '<i class="fa fa-check"></i>' : '<i class="fa-window-close-o"></i>' !!}</td>
                     <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
+                    <td>{{ ($member['gain_amount_one'] + $member['gain_amount_ten']) / 1000000 }}</td>
+                    <td>{{ substr($member['created_at'], 0, 10) }}</td>
                 </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
-                <tr>
-                    <td>234</td>
-                    <td>d74...b33</td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td><i class="fa fa-check"></i></td>
-                    <td>14772000.0</td>
-                    <td>Sep 12 2020 12:10AM</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

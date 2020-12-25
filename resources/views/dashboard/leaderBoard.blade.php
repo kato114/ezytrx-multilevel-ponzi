@@ -15,48 +15,14 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($leaderlist as $key =>$leader)
                 <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>d74...b33</td>
-                    <td>22531100.0 trx / $ 608339.700</td>
+                    <th>{{ $key + 1 }}</th>
+                    <th>{{ $leader->id }}</th>
+                    <th>{{ substr($leader->address, 0, 3) . "..." . substr($leader->address, -3) }}</th>
+                    <th>{{ $leader->gain_amount / 1000000 }} / $ {{ number_format($leader->gain_amount / 1000000 * $tron_price, 2) }}</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>d74...b33</td>
-                    <td>22531100.0 trx / $ 608339.700</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>d74...b33</td>
-                    <td>22531100.0 trx / $ 608339.700</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>d74...b33</td>
-                    <td>22531100.0 trx / $ 608339.700</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>d74...b33</td>
-                    <td>22531100.0 trx / $ 608339.700</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>d74...b33</td>
-                    <td>22531100.0 trx / $ 608339.700</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>d74...b33</td>
-                    <td>22531100.0 trx / $ 608339.700</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

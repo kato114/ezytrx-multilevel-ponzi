@@ -16,83 +16,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
-                <tr>
-                    <td>d74...b33</td>
-                    <td>50.0</td>
-                    <td>EZY10</td>
-                    <td>5</td>
-                    <td>Oct 10 2020 5:08PM</td>
-                </tr>
+            @foreach($lost_list as $lost)
+            <tr>
+                <td>{{ substr($lost->txn_id, 0, 3) . "..." . substr($lost->txn_id, -3) }}</td>
+                <td>{{ $lost->amount / 1000000 }}</td>
+                <td>{{ $lost->type == 0 ? 'EZY1' : 'EZY10' }}</td>
+                <td>{{ $lost->level }}</td>
+                <td>{{ $lost->created_at }}</td>
+            </tr>
+            @endforeach
             </tbody>
         </table>
     </div>
