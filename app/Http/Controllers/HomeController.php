@@ -52,7 +52,7 @@ class HomeController extends Controller
 
     public function check_login()
     {
-        $user = User::find(request('id'));
+        $user = User::where('address_name', '!=', '-1')->find(request('id'));
 
         if ($user != NULL) {
             session(['user' => $user]);
