@@ -37,10 +37,10 @@ $(document).ready(function() {
 			};
 
 	        var result = await MatrixInstance.regUser(referral_id).send(options);
+
 	    	if (result) {
 				var account_id =  await MatrixInstance.lastIDCount.call().call();
 				account_id = account_id.toNumber();
-
 	            $.ajax({
 	                type: "POST",
 	                url: "register",

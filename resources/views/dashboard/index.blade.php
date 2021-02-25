@@ -78,7 +78,7 @@
 								@else
 								<div class="matrix-children__nonactive mr-5">
 									<a href="#" title="UID: nonnactive"> &nbsp; </a>
-								</div>bu
+								</div>
 								@endif
 								@if(count($ezy10_one_members) >= 2)
 								<div class="matrix-children__active ma-6">

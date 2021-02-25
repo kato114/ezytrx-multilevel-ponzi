@@ -28,7 +28,10 @@ Route::get('/personal', 'DashboardController@personalStats')->name("personal");
 Route::get('/leaderboard', 'DashboardController@leaderBoard')->name("leaderboard");
 Route::get('/matrix', 'DashboardController@matrix')->name("matrix");
 Route::get('/lost', 'DashboardController@lostEarning')->name("lost");
+Route::get('/dividend', 'DashboardController@dividend')->name("dividend");
+Route::get('/reftop', 'DashboardController@reftop')->name("reftop");
 
 Route::get('/instruction', 'InformationController@instruction')->name("instruction");
 
 Route::get('/upgrade', 'DashboardController@check_upgrade')->name("check_upgrade");
+Route::get('/bonus', 'DashboardController@send_bonus')->name("send_bonus");

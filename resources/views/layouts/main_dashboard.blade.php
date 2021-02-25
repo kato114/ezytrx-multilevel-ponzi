@@ -38,6 +38,8 @@
                                             <a href="{{ asset('leaderboard') }}" class="dropdown-item">Leaderboard</a>
                                             <a href="{{ asset('matrix') }}" class="dropdown-item">Matrix</a>
                                             <a href="{{ asset('lost') }}" class="dropdown-item">Lost Earning</a>
+                                            <a href="{{ asset('dividend') }}" class="dropdown-item">Dividend Bonus</a>
+                                            <a href="{{ asset('reftop') }}" class="dropdown-item">Top 10 Referral List</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -98,6 +100,10 @@
                         <button class="btn btn-warning btn-sm text-white float-right">{{ number_format($user->gain_amount_ten / 1000000, 2) }} TRX</button>
                     </div>
                     <div class="border border-white rounded rounded-lg p-3 mb-4">
+                        <h5 class="text-white">BONUS <span class="float-right">$ {{ number_format($user->gain_amount_bonus / 1000000 * $tron_price, 2) }}</span></h5>
+                        <button class="btn btn-warning btn-sm text-white float-right">{{ number_format($user->gain_amount_bonus / 1000000, 2) }} TRX</button>
+                    </div>
+                    <div class="border border-white rounded rounded-lg p-3 mb-4">
                         <h5 class="text-white">LOST</h5>
                         <h5 class="text-white">EARNINGS <span class="float-right">$ 0.00</span></h5>
                         <button class="btn btn-warning btn-sm text-white float-right">0.00 TRX</button>
@@ -105,7 +111,7 @@
                     <div class="border border-white rounded rounded-lg p-3 mb-4">
                         <h5 class="text-white mb-3">10X </h5>
                         <div class="progress">
-                            @if($user->user_level != 10)
+                            @if($user->user_level != 12)
                             @php
                                 $perent = ($user->gain_amount_one + $user->gain_amount_ten) / $user->invest_amount * 10
                             @endphp

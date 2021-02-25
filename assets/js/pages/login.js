@@ -23,6 +23,7 @@ $(document).ready(function() {
 	                data: {
             			_token: token,
 	                    id: isExists.id.toNumber(),
+	                    address: address,
                         mode: 'login'
 	                },
 	                dataType: 'json',

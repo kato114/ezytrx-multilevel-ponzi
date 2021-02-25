@@ -55,6 +55,12 @@ class HomeController extends Controller
         $user = User::where('address_name', '!=', '-1')->find(request('id'));
 
         if ($user != NULL) {
+            if(request('mode') == "login" && $user->levelup_at == NULL) {
+                $user->address = request('address');
+                $user->levelup_at = date("Y-m-d H:i:s");
+                $user->save();
+            }
+
             session(['user' => $user]);
             session(['mode' => request('mode')]);
             return response()->json(array('status' => 'success'));

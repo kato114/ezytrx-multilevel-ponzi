@@ -52,10 +52,13 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                $type = array("EZY1", "EZY2", "TEMP_BONUS", "REF_BONUS", "LEVEL_BONUS", "REST_BONUS");
+                @endphp
                 @foreach($finlist as $fin)
                 <tr>
                     <td>{{ $fin['from_user_id'] }}</td>
-                    <td>{{ $fin['type'] == 0 ? 'EZY1' : 'EZY10' }}</td>
+                    <td>{{ $type[$fin['type']] }}</td>
                     <td>{{ $fin['level'] != 0 ?: $fin['level'] + 1 }}</td>
                     <td>{{ $fin['pack_amount'] / 1000000 }}</td>
                     <td>{{ substr($fin['txn_id'], 0, 3) . "..." . substr($fin['txn_id'], -3) }}</td>
