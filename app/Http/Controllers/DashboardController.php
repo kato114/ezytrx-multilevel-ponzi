@@ -197,16 +197,6 @@ class DashboardController extends Controller
 
     public function check_upgrade()
     {
-        // $this->tron->setAddress(env('Wallet_ADDRESS'));
-        // $this->tron->setPrivateKey(env('Wallet_PrvKey'));
-        //var_dump($this->tron->generateAddress());
-
-        var_dump($this->tron->getAccount('TGCGgunYNvxCGwJtMuMLcV8L3KauWHiCaz'));
-        var_dump($this->tron->getBalance('TGCGgunYNvxCGwJtMuMLcV8L3KauWHiCaz', true));
-//TGCGgunYNvxCGwJtMuMLcV8L3KauWHiCaz
-        exit;
-
-
         try {
             $contractAddress = env('CONTRACT_ADDRESS');
 
